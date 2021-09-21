@@ -13,14 +13,6 @@
 
 
 
-*{
-    box-sizing: 
-    border-box;
-    padding: 0;
-    margin: 0;
-
-}
-
 :root{
     --heading:
     'Montserrat',
@@ -119,7 +111,7 @@ hr{
 
 
 
-@media(min-width: 800px)
+@media(min-width: 650px)
 {
     /*nav*/
     /*responsive design when sizing browsing window*/
@@ -140,7 +132,7 @@ hr{
     (nav bar disappears), when window gets smaller website 
     name gets expanded with drop down display*/
 .top-head{
-        flex: 0 0 15%;
+        flex: 0 0 auto;
 }
     
     /*nav bar options appear when window expands
@@ -169,12 +161,7 @@ hr{
         background: none;
 }
     
-
-    
-
-   
 }
-
 
 #login-form
 {
@@ -260,13 +247,7 @@ hr{
 {
 	margin: 30px 10px 34px 0;
 }
-span
-{
-	color:#777;
-	font-size:12px;
-	bottom:68px;
-	position:absolute;
-}
+
 #login
 {
 	left:50px;
