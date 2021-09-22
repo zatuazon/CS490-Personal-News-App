@@ -167,19 +167,35 @@ hr{
 {
     display: none;
 }
+#reset-form
+{
+	display:inline;
+}
 .form-box
 {
     width:380px;
-	height:480px;
+	height:500px;
 	position:relative;
 	margin:2% auto;
 	background:rgba(0,0,0,0.3);
 	padding:10px;
     overflow: hidden;
 }
+.reset-box
+{
+
+}
 .button-box
 {
 	width:220px;
+	margin:35px auto;
+	position:relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;
+}
+.reset-box
+{
+	width:110px;
 	margin:35px auto;
 	position:relative;
 	box-shadow: 0 0 20px 9px #ff61241f;
@@ -265,4 +281,28 @@ hr{
 {
 	color:white;
 	font-size: 15;
+}
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+.invalid {
+  color: red;
+}
+.invalid:before {
+  position: relative;
+  left: -35px;
+  
+}
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
 }

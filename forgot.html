@@ -58,48 +58,34 @@
                                <li><a href = "#">Featured</a></li>
                                <li><a href = "#">broadcast</a></li>
                                <li><a href = "#">category</a></li>
-                               <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">LOGIN</button></li>
+                               <li><button class='loginbtn' onclick="document.getElementById('reset-form').style.display='block'" style="width:auto;">LOGIN</button></li>
                            </ul>
                        </nav>
                    </div>
                </div> 
             </header>
 
-            <div id='login-form'class='login-page'>
+            <div id='reset-form'class='login-page'>
                 <div class="form-box">
-                    <div class='button-box'>
+                    <div class='reset-box'>
                         <div id='btn'></div>
-                        <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
-                        <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+			<button type='button'onclick='login()'class='toggle-btn'>Reset Password</button>
+                        
+                        
                     </div>
                     <form id='login' class='input-group-login'>
                         <input type='email'class='input-field'placeholder='Email Id' required >
-                        <input type='password'class='input-field'placeholder='Enter Password' required>
-                        <input type='checkbox'class='check-box'><span>Remember Password</span>
-                        <button type='submit'class='submit-btn'>Log in</button>
-			<br>
-			<a href = "forgot.html">Forgot Password?</a>
+                     
+                        
+                        <button type='submit' onclick'="reset()" class='submit-btn'>Reset</button>
+			
+			
                     </form>
-                    <form id='register' class='input-group-register'>
-                        <input type='text'class='input-field'placeholder='First Name' required>
-                        <input type='text'class='input-field'placeholder='Last Name ' required>
-			<input type='text'class='input-field'placeholder='Username ' required>
-                        <input type='email'class='input-field'placeholder='Email Id' required>
-                        <input id="pass" type='password'class='input-field'placeholder='Enter Password' required>
-                        <input type='password'class='input-field'placeholder='Confirm Password'  required>
-                        <input type='checkbox'class='check-box'><span>I agree to the terms and conditions</span>
-                        <button type='submit'class='submit-btn'>Register</button>
-                    </form>
+			
                 </div>
-           </div>
-	<div id="message">
-  		<h1>Password must contain the following:</h1>
-  		<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  		<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  		<p id="number" class="invalid">A <b>number</b></p>
-  		<p id="length" class="invalid">Minimum <b>8 characters</b></p>
-	</div>
 
+           </div>
+		
             <!--links javascript file--->
             <script src="script.js" async defer></script>
             
