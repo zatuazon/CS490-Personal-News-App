@@ -157,6 +157,15 @@ hr{
         padding-right: 30px;
 }
 
+.nav-bar nav ul li input[type=text] {
+        float: right;
+        padding: 6px;
+        border: none;
+        margin-right: 16px;
+        font-size: 17px;
+
+}
+
 .nav-bar nav ul li:hover{
         background: none;
 }
