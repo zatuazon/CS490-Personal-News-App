@@ -55,27 +55,30 @@ function reset() {
 
 /*Confirm strong password when registering*/
 
-var myInput = document.getElementById("pass");
+var pass = document.getElementById("pass");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
+var password = document.getElementById("password");
+var match = document.getElementById("match");
+
 
 /*When the user clicks on the password field, show the message box */
-myInput.onfocus = function() {
+pass.onfocus = function showMessage() {
   document.getElementById("message").style.display = "block";
 }
 
-/* When the user clicks outside of the password field, hide the message box*/
-/*myInput.onblur = function() {
+/* When the user clicks outside of the password field, hide the message box
+pass.onblur = function hideMessage() {
   document.getElementById("message").style.display = "none";
 }*/
 
 /* When the user starts to type something inside the password field */
-myInput.onkeyup = function() {
+function strength() {
   /* Validate lowercase letters */
   var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {  
+  if(pass.value.match(lowerCaseLetters)) {  
     letter.classList.remove("invalid");
     letter.classList.add("valid");
   } else {
@@ -85,7 +88,7 @@ myInput.onkeyup = function() {
   
   /*  Validate capital letters  */
   var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {  
+  if(pass.value.match(upperCaseLetters)) {  
     capital.classList.remove("invalid");
     capital.classList.add("valid");
   } else {
@@ -95,7 +98,7 @@ myInput.onkeyup = function() {
 
   /* Validate numbers  */
   var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {  
+  if(pass.value.match(numbers)) {  
     number.classList.remove("invalid");
     number.classList.add("valid");
   } else {
@@ -104,11 +107,23 @@ myInput.onkeyup = function() {
   }
   
   /* Validate length   */
-  if(myInput.value.length >= 8) {
+  if(pass.value.length >= 8) {
     length.classList.remove("invalid");
     length.classList.add("valid");
   } else {
     length.classList.remove("valid");
     length.classList.add("invalid");
   }
+
+  /*Validate Matching Password */
+  if(pass.value === password.value){
+    match.classList.remove("invalid");
+    match.classList.add("valid");
+  } else {
+    match.classList.remove("valid");
+    match.classList.add("invalid");
+  }
 }
+/* not only works on pass but password ^ strength function */
+pass.onkeyup = strength;
+password.onkeyup = strength;
