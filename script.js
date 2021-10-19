@@ -63,6 +63,17 @@ var length = document.getElementById("length");
 var password = document.getElementById("password");
 var match = document.getElementById("match");
 
+/*button disable until password match*/
+
+function disableBtn() {
+	document.getElementById("regBtn").disabled = true;
+	
+	}
+function enableBtn() {
+	document.getElementById("regBtn").disabled = false;
+	
+	}
+
 
 /*When the user clicks on the password field, show the message box */
 pass.onfocus = function showMessage() {
@@ -81,9 +92,11 @@ function strength() {
   if(pass.value.match(lowerCaseLetters)) {  
     letter.classList.remove("invalid");
     letter.classList.add("valid");
+    
   } else {
     letter.classList.remove("valid");
     letter.classList.add("invalid");
+    
   }
   
   /*  Validate capital letters  */
@@ -91,9 +104,11 @@ function strength() {
   if(pass.value.match(upperCaseLetters)) {  
     capital.classList.remove("invalid");
     capital.classList.add("valid");
+    
   } else {
     capital.classList.remove("valid");
     capital.classList.add("invalid");
+    
   }
 
   /* Validate numbers  */
@@ -101,28 +116,39 @@ function strength() {
   if(pass.value.match(numbers)) {  
     number.classList.remove("invalid");
     number.classList.add("valid");
+    
   } else {
     number.classList.remove("valid");
     number.classList.add("invalid");
+    
   }
   
   /* Validate length   */
   if(pass.value.length >= 8) {
     length.classList.remove("invalid");
     length.classList.add("valid");
+    
   } else {
     length.classList.remove("valid");
     length.classList.add("invalid");
+   
   }
 
   /*Validate Matching Password */
   if(pass.value === password.value){
     match.classList.remove("invalid");
     match.classList.add("valid");
+    
   } else {
     match.classList.remove("valid");
     match.classList.add("invalid");
+    
   }
+if(pass.value === password.value && pass.value.length >= 8 && pass.value.match(numbers) && pass.value.match(upperCaseLetters) && pass.value.match(lowerCaseLetters)){
+	enableBtn();
+} else {
+	disableBtn();
+}
 }
 /* not only works on pass but password ^ strength function */
 pass.onkeyup = strength;
