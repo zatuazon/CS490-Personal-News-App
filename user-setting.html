@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <html class="no-js">
+        <head>
+            
+           
+            <title>User Settings</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width-device-width, intial-scale-1">
+
+            <!--linking main css file-->
+            <link rel="stylesheet" href="main.css">
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600&family=Montserrat:wght@200;300;400;700&display=swap" rel="stylesheet">
+
+            <!--fontawesome-->
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+        </head>
+        <body class = "user-settings">
+            
+            <div class = "container">
+                <div class = "leftbox">
+                    <nav class = "setting-tab">
+                        <a onclick = "tabs(0)"class = "tab active"><i class = "fa fa-user"></i></a>
+            
+                        <a onclick = "tabs(1)"class = "tab"><i class = "fa fa-cog"></i></a>
+
+                    </nav>
+                </div>
+                <div class = "rightbox">
+                    <div class = "profile tabShow">
+                        <form method="post" action="" id='' class=''>
+                            <h1 class = "profile-header">Personal Info</h1>
+                            <h2 class = "profile-header2">First Name</h2>
+                            <input type='text'class='input-field'placeholder='First Name'  required>
+                            <h2 class = "profile-header2">Last Name</h2>
+                            <input type='text'class='input-field'placeholder='Last Name '  required>
+                            <h2 class = "profile-header2">Username</h2>
+                            <input type='text'class='input-field'placeholder='Username ' required>
+                            <h2 class = "profile-header2">Email</h2>
+                            <input id="regEmail" type='email'class='input-field'placeholder='Email Id' required>
+                            <h2 class = "profile-header2">New Password</h2>
+                            <input id="pass" type='password'class='input-field'placeholder='Enter Password' required>
+                            <input id = "password" type='password'class='input-field'placeholder='Confirm Password' title="Please confirm password" required>
+                            <button class = "update-btn">Update</button>
+                        </form>    
+                    </div>
+                    <div class = "preference tabShow">
+                        <h1 class = "profile-header">Account Preference</h1>
+                        <h2 class = "profile-header2">News Settings</h2>
+                        <form method="post"action="">
+                            <input type="checkbox" >
+                            <label for="business">Business</label><br>
+                            <input type="checkbox" >
+                            <label for="entertainment">Entertainment</label><br>
+                            <input type="checkbox" >
+                            <label for="health">Health</label><br><br>
+                            <input type="checkbox" >
+                            <label for="general">General</label><br>
+                            <input type="checkbox" >
+                            <label for="science">Science</label><br>
+                            <input type="checkbox" >
+                            <label for="sports">Sports</label><br>
+                            <input type="checkbox" >
+                            <label for="technology">Technology</label><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                        
+                </div>
+            </div>
+            <!--links javascript file--->
+            <script src="script.js" async defer></script>
+            <script>
+                const tabBtn = document.querySelectorAll(".tab");
+                const tab = document.querySelectorAll(".tabShow");
+
+                function tabs(panelIndex) {
+                    tab.forEach(function(node) {
+                        node.style.display = "none";
+                    });
+                    tab[panelIndex].style.display = "block";
+                }
+                tabs(0);
+            </script>
+            <script>
+                $(".tab").click(function() {
+                    $(this).addClass("active").siblings().removeClass("active");
+                })
+            </script>
+            <!--bootstrap-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+            
+           
+
+        </body>
+    </html>
