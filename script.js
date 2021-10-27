@@ -153,3 +153,268 @@ if(pass.value === password.value && pass.value.length >= 8 && pass.value.match(n
 /* not only works on pass but password ^ strength function */
 pass.onkeyup = strength;
 password.onkeyup = strength;
+
+
+function fetchData() {
+
+  const outputElement = document.getElementById("output");
+
+ 
+
+  fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchData();
+
+
+function fetchFeatured() {
+
+  const outputElement = document.getElementById("output2");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=featured&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchFeatured();
+
+function fetchBusiness() {
+
+  const outputElement = document.getElementById("output3");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=business&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchBusiness();
+
+function fetchEntertainment() {
+
+  const outputElement = document.getElementById("output4");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=entertainment&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchEntertainment();
+
+function fetchSports() {
+
+  const outputElement = document.getElementById("output5");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=sports&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchSports();
+
+
+function fetchHealth() {
+
+  const outputElement = document.getElementById("output6");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=health&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchHealth();
+
+function fetchScience() {
+
+  const outputElement = document.getElementById("output7");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=science&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchScience();
+
+function fetchTechnology() {
+
+  const outputElement = document.getElementById("output8");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=technology&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchTechnology();
+
+
+function fetchGeneral() {
+
+  const outputElement = document.getElementById("output9");
+
+ 
+
+  fetch("https://newsapi.org/v2/everything?q=general&apiKey=4e138d817134454484b82bdb469ea905")
+    .then((x) => x.json())
+    .then((response) => {
+      response.articles.forEach((article) => {
+        const articleHtml = `
+        <div style="padding-top:30px;background-color: transparent;">
+          <a href="${article.url}" target="_blank">
+            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
+          </a>
+
+          <h1>${article.title}</h1>
+
+          <h2>${article.source.name}</h2>
+
+          <div>${article.description}</div>
+
+        </div>`;
+        outputElement.innerHTML += articleHtml;
+      });
+    });
+}
+fetchGeneral();

@@ -428,4 +428,19 @@ body.user-settings span{
   padding: 10px 35px;
   font-size: 18px;
 }
+.output {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          grid-gap: 10px;
+          padding: 10px;
+        }
+        
+        .output > div {
+          background-color: rgba(255, 255, 255, 0.8);
+          
+          text-align: center;
+          position:relative;
+          
+          font-size: 20px;
+        }
 
