@@ -25,13 +25,13 @@ btnTimes.addEventListener('click', function(){
 var x=document.getElementById('login');
 var y=document.getElementById('register');
 var z=document.getElementById('btn');
-function register()
+function register1()
 {
     x.style.left='-400px';
     y.style.left='50px';
     z.style.left='110px';
 }
-function login()
+function login1()
 {
     x.style.left='50px';
     y.style.left='450px';
@@ -418,3 +418,145 @@ function fetchGeneral() {
     });
 }
 fetchGeneral();
+
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyBNkNnah4kA9niJfanPzRZMrY3uu-BvJAA",
+  authDomain: "news-5d9b2.firebaseapp.com",
+  projectId: "news-5d9b2",
+  storageBucket: "news-5d9b2.appspot.com",
+  messagingSenderId: "78196957863",
+  appId: "1:78196957863:web:659715e1766b63b85c3182"
+};
+// initialize firebase
+firebase.initializeApp(firebaseConfig);
+// variables
+const auth = firebase.auth()
+const database = firebase.database()
+
+// register function
+function register () {
+// Get inputs from index html
+email = document.getElementById('email').value
+password = document.getElementById('password').value
+first_name = document.getElementById('first_name').value
+last_name = document.getElementById('last_name').value
+user_name = document.getElementById('user_name').value
+
+// Make sure user has correct email and password
+if (validate_email(email) == false) {
+  alert('Current email is not correct!')
+  return
+  // Don't continue running the code
+}
+if (validate_field(first_name) == false || validate_field(last_name) == false || validate_field(user_name) == false) {
+  alert('Please enter information in all the fields!')
+  return
+}
+
+
+auth.createUserWithEmailAndPassword(email, password)
+.then(function() {
+  //variable
+  var user = auth.currentUser
+
+  // add to firebase database
+  var database_ref = database.ref()
+
+  // create user
+  var user_data = {
+    email : email,
+    first_name : first_name,
+    last_name : last_name,
+    user_name : user_name,
+    last_login : Date.now()
+  }
+
+  // sends to firebase database
+  database_ref.child('users/' + user.uid).set(user_data)
+
+  alert('Successfully Registered')
+})
+.catch(function(error) {
+  // firebase error message
+  var error_message = error.message
+
+  alert(error_message)
+})
+}
+
+//function login
+function login () {
+// html input id's
+email = document.getElementById('email').value
+password = document.getElementById('password').value
+
+// Validate input fields
+if (validate_email(email) == false) {
+  alert('Please enter the email and password correctly to login')
+  return
+}
+
+auth.signInWithEmailAndPassword(email, password)
+.then(function() {
+  //variable
+  var user = auth.currentUser
+
+  // add to firebase database
+  var database_ref = database.ref()
+
+  //create user
+  var user_data = {
+    last_login : Date.now()
+  }
+
+  // send data under category of users
+  database_ref.child('users/' + user.uid).update(user_data)
+
+
+  alert('Successfully Logged in')
+
+})
+.catch(function(error) {
+  // firebase error message
+  var error_message = error.message
+
+  alert(error_message)
+})
+}
+
+
+
+
+// validate email
+function validate_email(email) 
+{
+expression = /^[^@]+@\w+(\.\w+)+\w$/
+if (expression.test(email) == true) 
+{
+  // email works for us
+  return true
+} 
+else 
+{
+  // email doesnt work for us
+  return false
+}
+}
+//validate firstname lastname username
+function validate_field(field) 
+{
+if (field == null) 
+{
+  return false
+}
+if (field.length <= 0) 
+{
+  return false
+} 
+else 
+{
+  return true
+}
+}
