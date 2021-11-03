@@ -10,7 +10,7 @@
             <meta name="viewport" content="width-device-width, intial-scale-1">
 
             <!--linking main css file-->
-            <link rel="stylesheet" href="main.css">
+            <link rel="stylesheet" href="login.css">
             
             
             <!--this is where you try to find fonts from google-->
@@ -24,70 +24,48 @@
             <script src="https://kit.fontawesome.com/8b7e183f58.js" crossorigin="anonymous"></script>
         </head>
         <body>
-            
-            <!--header-->
-            <header>
-               <div class = "navigation-container">
-                   <div class = "top-head">
-                       <div class = "web-name">
-                           <h1>BOOTLEG BUSINESS INSIDER</h1>
-                       </div>
-
-                       <div class = "ham-btn">
-                           <span>
-                               <i class = "fas fa-bars"></i>
-                           </span>
-                       </div>
-
-                       <div class = "times-btn">
-                           <span>
-                               <i class = "fas fa-times"></i>
-                           </span>
-                       </div>
-                   </div>
-
-                   <!--navigation bar, tentative menu names 
-                    depending on what kind of news-->
-                   <div class = "nav-bar" id = "nav-bar">
-                       <nav>
-                           <ul>
-                              <li><a href = "index.html">home</a></li>
-                              <li><a href = "#">Featured</a></li>
-                              <li><a href = "#">Business</a></li>
-                              <li><a href = "#">Entertainment</a></li>
-                              <li><a href = "#">Sports</a></li>
-                              <li><a href = "#">Health</a></li>
-                              <li><a href = "#">Science</a></li>
-                              <li><a href = "#">Technology</a></li>
-                              <li><a href = "#">General</a></li>
-                              <li><a href = "#" class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">LOGIN</a></li>
-                              <li><input type = "text" placeholder="Search..."></li>
-                           </ul>
-                       </nav>
-                   </div>
-               </div> 
-            </header>
-
-            <div id='reset-form'class='login-page'>
-                <div class="form-box">
-                    <div class='reset-box'>
-                        <div id='btn'></div>
-			<button type='button'onclick='login()'class='toggle-btn'>Reset Password</button>
-                        
+            <div class="container">
+                <input type="checkbox" id="flip">
+                    <div class="cover">
+                        <div class="front">
+                            <img src="frontimage1.png" alt="">
+                            <div class="text">
+                                <span class="text-1">Did you forget <br>your password?</span>
+                                <span class="text-2">Let us help you.</span>
+                            </div>
+                        </div>
+                
+                    </div>
+                    <div class="forms">
+                        <div class="form-content">
+                            <div class="login-form">
+                                <div class="title">Forgot Password?</div>
+                            <form id='login' class='input-group-login'>
+                                <div class="input-boxes">
+                                    <div class="input-box">
+                                        <i class="fas fa-envelope"></i>
+                                        <input id="regEmail" type='email'class='input-field'placeholder='Email' required >
+                                    </div>
+                                    <div class="button input-box">
+                                        <input onclick="login()" type='submit'class='submit-btn'>
+                                    </div>
+                                    <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+                                </div>
+                            </form>
                         
                     </div>
-                    <form method="post" action="" id='login' class='input-group-login'>
-                        <input id="regEmail" type='email'class='input-field'placeholder='Email' required >
-                     
-                        
-                        <button type='submit' onclick="reset()" class='submit-btn'>Reset</button>
-			
-			
-                    </form>
-			
                 </div>
+            </div>
+           
 
-           </div>
+           
+           
+           
+           
+           
+           
+           
+            
 		
             <!--links javascript file--->
             <script src="script.js" async defer></script>
