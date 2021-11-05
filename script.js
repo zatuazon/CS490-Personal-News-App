@@ -144,7 +144,7 @@ function strength() {
     match.classList.add("invalid");
     
   }
-if(pass.value === password.value && pass.value.length >= 8 && pass.value.match(numbers) && pass.value.match(upperCaseLetters) && pass.value.match(lowerCaseLetters)){
+if(pass.value.length >= 8){
 	enableBtn();
 } else {
 	disableBtn();
