@@ -60,7 +60,7 @@
                                <li><a href = "science.html">Science</a></li>
                                <li><a href = "technology.html">Technology</a></li>
                                <li><a href = "general.html">General</a></li>
-			       <li><a href = "#" class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">LOGIN</a></li>
+			       <li><button onclick="signOut()">Sign Out</button></li>
 			       <li><input type = "text" placeholder="Search news..."></li>
                            </ul>
                        </nav>
@@ -70,40 +70,7 @@
 
             
 
-            <div id='login-form'class='login-page'>
-                <div class="form-box">
-                    <div class='button-box'>
-                        <div id='btn'></div>
-                        <button type='button'onclick='login1()'class='toggle-btn'>Login</button>
-                        <button type='button'onclick='register1()'class='toggle-btn'>Register</button>
-                    </div>
-                    <form id='login' class='input-group-login'>
-                        
-			<br>
-			<a href = "forgot.html">Forgot Password?</a>
-                    </form>
-                    <form id='register' class='input-group-register'>
-                        <input id="first_name" type='text'class='input-field'placeholder='First Name' required>
-                        <input id="last_name" type='text'class='input-field'placeholder='Last Name ' required>
-			            <input id="user_name" type='text'class='input-field'placeholder='Username ' required>
-                        <input id="email" type='email'class='input-field'placeholder='Email Id' required>
-                        <input id="password" type='password'class='input-field'placeholder='Enter Password' required>
-                        <input id="pass" type='password'class='input-field'placeholder='Confirm Password'  required>
-                        <button id="regBtn" onclick="register()" type='submit'class='submit-btn'>Register</button>
-                        <br>
-                        <br>
-                        <button onclick="login()" type='submit'class='submit-btn'>Log in</button>
-                    </form>
-                </div>
-           </div>
-	<div id="message">
-  		<h1>Password must contain the following:</h1>
-  		<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  		<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  		<p id="number" class="invalid">A <b>Number</b></p>
-  		<p id="length" class="invalid">Minimum <b>8 characters</b></p>
-		<p id="match" class="invalid">Password <b>Match</b></p>
-	</div>
+            
     <div class ="output" id="output">
 
     </div>
