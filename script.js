@@ -86,7 +86,7 @@ const firebaseConfig = {
   
 	  // Add this user to Firebase Database
 	  var database_ref = database.ref()
-  
+    window.location = 'index.html';
 	  // Create User data
 	  var user_data = {
 		last_login : Date.now()
@@ -96,7 +96,9 @@ const firebaseConfig = {
 	  database_ref.child('users/' + user.uid).update(user_data)
   
 	  // DOne
-	  alert('Logged In '+ email)
+    
+	  alert('Welcome '+ email)
+    
   
 	})
 	.catch(function(error) {
@@ -107,26 +109,15 @@ const firebaseConfig = {
 	  alert(error_message)
 	})
   }
-  
   function signOut(){
     auth.signOut();
-    alert("signed out of " + email);
+    alert('Signed Out '+email);
+    window.location = 'login.html';
   }
+  
 
   
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is signed in.
-      if(window.location.href.indexOf("index.html") == -1){
-        window.location.replace("index.html");
-      }
-    } else {
-      // No user is signed in.
-     
-      }
-    }
-  );
-  
+ 
   // Validate Functions
   function validate_email(email) {
 	expression = /^[^@]+@\w+(\.\w+)+\w$/
