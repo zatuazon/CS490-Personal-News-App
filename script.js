@@ -1,3 +1,164 @@
+//api for firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyCSQXSf0quje5JxYFKBRRbLG2SCp7ymFYM",
+    authDomain: "news-9646a.firebaseapp.com",
+    projectId: "news-9646a",
+    storageBucket: "news-9646a.appspot.com",
+    messagingSenderId: "798864065224",
+    appId: "1:798864065224:web:7bfe4c8df0751c0950dbfd"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  // init variables
+  const auth = firebase.auth()
+  const database = firebase.database()
+  //global user
+  let user = null
+
+  auth.onAuthStateChanged((u) => {
+    user = u
+    
+  })
+  
+  // register function
+  function register () {
+	// input fields
+	email = document.getElementById('email').value
+	password = document.getElementById('password').value
+	first_name = document.getElementById('first_name').value
+	last_name = document.getElementById('last_name').value
+	username = document.getElementById('username').value
+  
+	// validate input fields
+	if (validate_email(email) == false || validate_password(password) == false) {
+	  alert('Incorrect Email or password!')
+	  return
+	  // don't continue running the code
+	}
+	if (validate_field(first_name) == false || validate_field(last_name) == false || validate_field(username) == false) {
+	  alert('First/Last/Username is incorrect!')
+	  return
+	}
+   
+	//auth
+	auth.createUserWithEmailAndPassword(email, password)
+	.then(function() {
+	  // user variable
+	  var user = auth.currentUser
+  
+	  // adding user
+	  var database_ref = database.ref()
+  
+	  // create user data
+	  var user_data = {
+		email : email,
+		first_name : first_name,
+		last_name : last_name,
+		username : username,
+		last_login : Date.now()
+	  }
+  
+	  // Push to Firebase Database
+	  database_ref.child('users/' + user.uid).set(user_data)
+  
+	  
+	  alert('User Created!')
+	})
+	.catch(function(error) {
+	  // Firebase will use this to alert of its errors
+	  var error_code = error.code
+	  var error_message = error.message
+  
+	  alert(error_message)
+	})
+  }
+  
+  // login function
+  function login () {
+	// input fields
+	email = document.getElementById('email').value
+	password = document.getElementById('password').value
+  
+	// validate input fields
+	if (validate_email(email) == false || validate_password(password) == false) {
+	  alert('Email or Password is Incorrect!')
+	  return
+	  // don't continue running the code
+	}
+  
+	auth.signInWithEmailAndPassword(email, password)
+	.then(function() {
+	  
+	  var user = auth.currentUser
+  
+	  // Add this user to Firebase Database
+	  var database_ref = database.ref()
+    
+	  // create User data
+	  var user_data = {
+		last_login : Date.now()
+	  }
+  
+	  // push to Firebase Database
+	  //database_ref.child('users/' + user.uid).update(user_data)
+    database_ref.child('users/' + user.uid+"/last_login").set(Date.now())
+	
+    
+	  alert('Welcome '+ email)
+    // redirect to index.html
+    window.location = 'index.html';
+  
+	})
+	.catch(function(error) {
+	  // Firebase will use this to alert of its errors
+	  var error_code = error.code
+	  var error_message = error.message
+  
+	  alert(error_message)
+	})
+  }
+
+  
+  function signOut(){
+    auth.signOut();
+    alert('Signed Out ');
+    window.location = 'login.html';
+  }
+ 
+ 
+  // validate functions
+  function validate_email(email) {
+	expression = /^[^@]+@\w+(\.\w+)+\w$/
+	if (expression.test(email) == true) {
+	  // Email ok
+	  return true
+	} else {
+	  // Email not ok
+	  return false
+	}
+  }
+  
+  function validate_password(password) {
+	// Firebase only accepts lengths greater than 6
+	if (password < 6) {
+	  return false
+	} else {
+	  return true
+	}
+  }
+  
+  function validate_field(field) {
+	if (field == null) {
+	  return false
+	}
+  
+	if (field.length <= 0) {
+	  return false
+	} else {
+	  return true
+	}
+  }
+
 
 
 const btnHam = document.querySelector('.ham-btn');
@@ -75,10 +236,10 @@ function enableBtn() {
 	}
 
 
-/*When the user clicks on the password field, show the message box */
+/*When the user clicks on the password field, show the message box 
 pass.onfocus = function showMessage() {
   document.getElementById("message").style.display = "block";
-}
+}*/
 
 /* When the user clicks outside of the password field, hide the message box
 pass.onblur = function hideMessage() {
@@ -150,413 +311,7 @@ if(pass.value === password.value && pass.value.length >= 8 && pass.value.match(n
 	disableBtn();
 }
 }
-/* not only works on pass but password ^ strength function */
+/* not only works on pass but password ^ strength function 
 pass.onkeyup = strength;
-password.onkeyup = strength;
+password.onkeyup = strength;*/
 
-
-function fetchData() {
-
-  const outputElement = document.getElementById("output");
-
- 
-
-  fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchData();
-
-
-function fetchFeatured() {
-
-  const outputElement = document.getElementById("output2");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=featured&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchFeatured();
-
-function fetchBusiness() {
-
-  const outputElement = document.getElementById("output3");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=business&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchBusiness();
-
-function fetchEntertainment() {
-
-  const outputElement = document.getElementById("output4");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=entertainment&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchEntertainment();
-
-function fetchSports() {
-
-  const outputElement = document.getElementById("output5");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=sports&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchSports();
-
-
-function fetchHealth() {
-
-  const outputElement = document.getElementById("output6");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=health&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchHealth();
-
-function fetchScience() {
-
-  const outputElement = document.getElementById("output7");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=science&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchScience();
-
-function fetchTechnology() {
-
-  const outputElement = document.getElementById("output8");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=technology&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchTechnology();
-
-
-function fetchGeneral() {
-
-  const outputElement = document.getElementById("output9");
-
- 
-
-  fetch("https://newsapi.org/v2/everything?q=general&apiKey=4e138d817134454484b82bdb469ea905")
-    .then((x) => x.json())
-    .then((response) => {
-      response.articles.forEach((article) => {
-        const articleHtml = `
-        <div style="padding-top:30px;background-color: transparent;">
-          <a href="${article.url}" target="_blank">
-            <img style="width: 100%;height:50%;" src="${article.urlToImage}">
-          </a>
-
-          <h1>${article.title}</h1>
-
-          <h2>${article.source.name}</h2>
-
-          <div>${article.description}</div>
-
-        </div>`;
-        outputElement.innerHTML += articleHtml;
-      });
-    });
-}
-fetchGeneral();
-
-
-
-var firebaseConfig = {
-  apiKey: "AIzaSyBNkNnah4kA9niJfanPzRZMrY3uu-BvJAA",
-  authDomain: "news-5d9b2.firebaseapp.com",
-  projectId: "news-5d9b2",
-  storageBucket: "news-5d9b2.appspot.com",
-  messagingSenderId: "78196957863",
-  appId: "1:78196957863:web:659715e1766b63b85c3182"
-};
-// initialize firebase
-firebase.initializeApp(firebaseConfig);
-// variables
-const auth = firebase.auth()
-const database = firebase.database()
-
-// register function
-function register () {
-// Get inputs from index html
-email = document.getElementById('email').value
-password = document.getElementById('password').value
-first_name = document.getElementById('first_name').value
-last_name = document.getElementById('last_name').value
-user_name = document.getElementById('user_name').value
-
-// Make sure user has correct email and password
-if (validate_email(email) == false) {
-  alert('Current email is not correct!')
-  return
-  // Don't continue running the code
-}
-if (validate_field(first_name) == false || validate_field(last_name) == false || validate_field(user_name) == false) {
-  alert('Please enter information in all the fields!')
-  return
-}
-
-
-auth.createUserWithEmailAndPassword(email, password)
-.then(function() {
-  //variable
-  var user = auth.currentUser
-
-  // add to firebase database
-  var database_ref = database.ref()
-
-  // create user
-  var user_data = {
-    email : email,
-    first_name : first_name,
-    last_name : last_name,
-    user_name : user_name,
-    last_login : Date.now()
-  }
-
-  // sends to firebase database
-  database_ref.child('users/' + user.uid).set(user_data)
-
-  alert('Successfully Registered')
-})
-.catch(function(error) {
-  // firebase error message
-  var error_message = error.message
-
-  alert(error_message)
-})
-}
-
-//function login
-function login () {
-// html input id's
-email = document.getElementById('email').value
-password = document.getElementById('password').value
-
-// Validate input fields
-if (validate_email(email) == false) {
-  alert('Please enter the email and password correctly to login')
-  return
-}
-
-auth.signInWithEmailAndPassword(email, password)
-.then(function() {
-  //variable
-  var user = auth.currentUser
-
-  // add to firebase database
-  var database_ref = database.ref()
-
-  //create user
-  var user_data = {
-    last_login : Date.now()
-  }
-
-  // send data under category of users
-  database_ref.child('users/' + user.uid).update(user_data)
-
-
-  alert('Successfully Logged in')
-
-})
-.catch(function(error) {
-  // firebase error message
-  var error_message = error.message
-
-  alert(error_message)
-})
-}
-
-
-
-
-// validate email
-function validate_email(email) 
-{
-expression = /^[^@]+@\w+(\.\w+)+\w$/
-if (expression.test(email) == true) 
-{
-  // email works for us
-  return true
-} 
-else 
-{
-  // email doesnt work for us
-  return false
-}
-}
-//validate firstname lastname username
-function validate_field(field) 
-{
-if (field == null) 
-{
-  return false
-}
-if (field.length <= 0) 
-{
-  return false
-} 
-else 
-{
-  return true
-}
-}
