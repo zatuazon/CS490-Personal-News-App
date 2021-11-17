@@ -7,7 +7,16 @@ auth.onAuthStateChanged((u) => {
 	getData()
 
 	console.log(user)
+//    shows message is v or not v
+  document.getElementById("verify_email_status").innerText = user.emailVerified ? `${user.email} is verfied` : "Not verfied"
+  // if not v no change button shows, if v button disappears...magic
+  document.getElementById("verify_email_btn").style.display = user.emailVerified ? "none" : "block"
 })
+
+async function verify() {
+  await user.sendEmailVerification()
+}
+
   //if there is not a user, log
   function getData(){
 	  if (!user) {
