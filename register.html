@@ -3,46 +3,73 @@
     <head>
         <meta charset="utf-8">
         <title>Register</title>
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="login.css">
+        <script src="https://kit.fontawesome.com/8b7e183f58.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="content_container">
-            <div id="form_container">
-                <div id="form_header_container">
-                    <h2 id="form_header">Register</h2>
-                </div>
-
-                <div id="form_content_container">
-                    <div id="form_content_inner_container">
-                        
-                        <input type="text" id="first_name" placeholder="first name">
-                        <input type="text" id="last_name" placeholder="last_name">
-                        <input type="text" id="username" placeholder="username">
-                        <input type="email" id="email" placeholder="Email">
-                        <input type="password" id="password" placeholder="Password">
-                        <input type="password" id="pass" placeholder="Confirm Password">
-
-                        <div id="button_container">
-                            <button onclick="register()">Register</button>
+        <div class="container">
+            <input type="checkbox" id="flip">
+                <div class="cover">
+                    <div class="front">
+                        <img src="backimg2.jpeg" alt="">
+                        <div class="text">
+                            <span class="text-1">Get connected to what's important to you.</span>
+                            <span class="text-2">Let's get started.</span>
                         </div>
-						
-
                     </div>
                 </div>
-            </div>
-        </div>
-		<a href="login.html">Login here!</a>
+                <div class="forms">
+                    <div class="form-content">
+                    
+                        <div class="signup-form">
+                            <div class="title">Signup</div>
+                    <div class="form-content">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="first_name" placeholder="First Name">
+                            </div>
+                            <div class="input-box">
+                                
+                                <input type="text" id="last_name" placeholder="Last Name">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user-tie"></i>
+                                <input type="text" id="username" placeholder="Username">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="Email">
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" placeholder="Password" >
+                            </div>
+                            <div id="message">
+                                <h3>Password must contain the following:</h1>
+                                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                <p id="number" class="invalid">A <b>number</b></p>
+                                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                              <p id="match" class="invalid">Password <b>Match</b></p>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-key"></i>
+                                <input type="password" id="pass" placeholder="Confirm Password" >
 
-        <br>
-        <br>
-        <div id="message">
-            <h1>Password must contain the following:</h1>
-            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-            <p id="number" class="invalid">A <b>number</b></p>
-            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-          <p id="match" class="invalid">Password <b>Match</b></p>
-      </div>
+                            </div>
+                            <div class="button input-box">
+                                <input type=submit  onclick="register()">
+                            </div>
+                            <div class="text sign-up-text">Already have an account? <a href="login.html">Login now</a></div>
+						</div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+	
+
+       
       <div class ="output" id="output">
   
       </div>
@@ -57,5 +84,7 @@
 
     <!-- Our script must be loaded after firebase references -->
     <script src="script.js"></script>
+    
+    
 
 </html>
