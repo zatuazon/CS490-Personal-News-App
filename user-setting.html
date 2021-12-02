@@ -1,99 +1,143 @@
 <!DOCTYPE html>
-    <html class="no-js">
-        <head>
-            
-           
-            <title>User Settings</title>
-            <meta name="description" content="">
-            <meta name="viewport" content="width-device-width, intial-scale-1">
-
-            <!--linking main css file-->
-            <link rel="stylesheet" href="main.css">
-
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600&family=Montserrat:wght@200;300;400;700&display=swap" rel="stylesheet">
-
-            <!--fontawesome-->
-            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-        </head>
-        <body class = "user-settings">
-            
-            <div class = "container">
-                <div class = "leftbox">
-                    <nav class = "setting-tab">
-                        <a onclick = "tabs(0)"class = "tab active"><i class = "fa fa-user"></i></a>
-            
-                        <a onclick = "tabs(1)"class = "tab"><i class = "fa fa-cog"></i></a>
-
-                    </nav>
-                </div>
-                <div class = "rightbox">
-                    <div class = "profile tabShow">
-                        <form method="post" action="" id='' class=''>
-                            <h1 class = "profile-header">Personal Info</h1>
-                            <h2 class = "profile-header2">First Name</h2>
-                            <input type='text'class='input-field'placeholder='First Name'  required>
-                            <h2 class = "profile-header2">Last Name</h2>
-                            <input type='text'class='input-field'placeholder='Last Name '  required>
-                            <h2 class = "profile-header2">Username</h2>
-                            <input type='text'class='input-field'placeholder='Username ' required>
-                            <h2 class = "profile-header2">Email</h2>
-                            <input id="regEmail" type='email'class='input-field'placeholder='Email Id' required>
-                            <h2 class = "profile-header2">New Password</h2>
-                            <input id="pass" type='password'class='input-field'placeholder='Enter Password' required>
-                            <input id = "password" type='password'class='input-field'placeholder='Confirm Password' title="Please confirm password" required>
-                            <button class = "update-btn">Update</button>
-                        </form>    
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>User Settings</title>
+        <link rel="stylesheet" href="login.css">
+        <script src="https://kit.fontawesome.com/8b7e183f58.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <input type="checkbox" id="flip">
+                <div class="cover">
+                    <div class="front">
+                        <img src="backimg2.jpeg" alt="">
+                        <div class="text">
+                            <span class="text-1">Need a change?</span>
+                            <span class="text-2">Let us help.</span>
+                        </div>
                     </div>
-                    <div class = "preference tabShow">
-                        <h1 class = "profile-header">Account Preference</h1>
-                        <h2 class = "profile-header2">News Settings</h2>
-                        <form method="post"action="">
-                            <input type="checkbox" >
-                            <label for="business">Business</label><br>
-                            <input type="checkbox" >
-                            <label for="entertainment">Entertainment</label><br>
-                            <input type="checkbox" >
-                            <label for="health">Health</label><br><br>
-                            <input type="checkbox" >
-                            <label for="general">General</label><br>
-                            <input type="checkbox" >
-                            <label for="science">Science</label><br>
-                            <input type="checkbox" >
-                            <label for="sports">Sports</label><br>
-                            <input type="checkbox" >
-                            <label for="technology">Technology</label><br>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </div>
-                        
                 </div>
-            </div>
-            <!--links javascript file--->
-            <script src="script.js" async defer></script>
-            <script>
-                const tabBtn = document.querySelectorAll(".tab");
-                const tab = document.querySelectorAll(".tabShow");
+                <div class="forms">
+                    <div class="form-content">
+                    
+                        <div class="signup-form">
+                            <div class="title">User Settings</div>
+                    <div class="form-content">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="first_name" placeholder="First Name" >
+                            </div>
+                            <div class="input-box">
+                                
+                                <input type="text" id="last_name" placeholder="Last Name" >
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user-tie"></i>
+                                <input type="text" id="username" placeholder="Username" >
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="Email" >
+                            </div>
+                            <br>
+                            <div class="text"><a href="forgot.html">Need a new password?</a></div>
+                            <br>
+                            <div class = "news-preference">
+                                <div class="title">News Preference</div><br>
+                                
+                            
+                                    <input type="checkbox" >
+                                    <label for="business">Business</label><br>
+                                    <input type="checkbox" >
+                                    <label for="entertainment">Entertainment</label><br>
+                                    <input type="checkbox" >
+                                    <label for="health">Health</label><br>
+                                    <input type="checkbox" >
+                                    <label for="general">General</label><br>
+                                    <input type="checkbox" >
+                                    <label for="science">Science</label><br>
+                                    <input type="checkbox" >
+                                    <label for="sports">Sports</label><br>
+                                    <input type="checkbox" >
+                                    <label for="technology">Technology</label><br>
+                                    
+                                
+                            </div>
+                            <div class="button input-box">
+                                <input id=saveData type=submit>
+                            </div>
+                            
+						</div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+	
 
-                function tabs(panelIndex) {
-                    tab.forEach(function(node) {
-                        node.style.display = "none";
-                    });
-                    tab[panelIndex].style.display = "block";
-                }
-                tabs(0);
-            </script>
-            <script>
-                $(".tab").click(function() {
-                    $(this).addClass("active").siblings().removeClass("active");
-                })
-            </script>
-            <!--bootstrap-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-            
-           
+       
+      <div class ="output" id="output">
+        
+    
+  
+      </div>
+    </body>
+   
+   
 
-        </body>
-    </html>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+      <script>
+ 
+    const firebaseConfig = {
+    apiKey: "AIzaSyCSQXSf0quje5JxYFKBRRbLG2SCp7ymFYM",
+    authDomain: "news-9646a.firebaseapp.com",
+    projectId: "news-9646a",
+    storageBucket: "news-9646a.appspot.com",
+    messagingSenderId: "798864065224",
+    appId: "1:798864065224:web:7bfe4c8df0751c0950dbfd"
+  };
+
+
+  firebase.initializeApp(firebaseConfig);
+  // init variables
+  const auth = firebase.auth()
+  const database = firebase.database()
+  //global user
+  let user = null
+
+  auth.onAuthStateChanged((u) => {
+    user = u
+    
+  })
+
+    saveData.addEventListener('click',(e) => {
+    var first_name = document.getElementById('first_name').value;
+    var last_name = document.getElementById('last_name').value;
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value
+    
+    
+  var user_data = {
+        email : email,
+		first_name : first_name,
+		last_name : last_name,
+		username : username,
+        last_login : Date.now()
+  };
+
+  const updates = {};
+  updates['/users/' + user.uid] = user_data;
+
+  return firebase.database().ref().update(updates);
+  alert('updated');
+});
+</script>
+
+</html>
