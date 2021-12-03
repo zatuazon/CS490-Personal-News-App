@@ -182,32 +182,7 @@ btnTimes.addEventListener('click', function(){
     }
 })
 
-/* signin/register box pops into page*/
-var x=document.getElementById('login');
-var y=document.getElementById('register');
-var z=document.getElementById('btn');
-function register1()
-{
-    x.style.left='-400px';
-    y.style.left='50px';
-    z.style.left='110px';
-}
-function login1()
-{
-    x.style.left='50px';
-    y.style.left='450px';
-    z.style.left='0px';
-}
 
-/*makes signin/register window disappear if you click outside of box*/
-var modal = document.getElementById('login-form');
-window.onclick = function(event) 
-{
-    if (event.target == modal) 
-    {
-        modal.style.display = "none";
-    }
-}
 /*Button sends message to confirm email has been sent*/
 function reset() {
   message("Email has been sent!");
