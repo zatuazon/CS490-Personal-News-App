@@ -134,9 +134,11 @@
 
   const updates = {};
   updates['/users/' + user.uid] = user_data;
+	  
+  alert('Updated!');
 
   return firebase.database().ref().update(updates);
-  alert('updated');
+  
 });
 </script>
 
