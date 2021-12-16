@@ -32,7 +32,7 @@ return      value.title.toLowerCase().includes(searchQuery) ||
 
 
     const html = `
-<div>
+<div style="padding-top:30px;">
   <h2>${n.title}</h2>
   <a href="${n.url}">Click to go to site.</a>
   <img src="${n.urlToImage}">

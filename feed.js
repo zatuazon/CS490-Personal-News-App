@@ -20,12 +20,12 @@ function getData() {
       if (snapshot.exists()) {
         let userProfile = snapshot.val();
         const { preferences } = userProfile;
-        console.log(userProfile);
+        //console.log(userProfile);
 
         if (!preferences) {
           return;
         }
-
+        //preferences
         const {
           Business,
           Entertainment,
@@ -36,8 +36,8 @@ function getData() {
           Technology,
         } = preferences;
 
-        console.log("here")
-
+        //console.log("here")
+//if selected, fetch that certain news type
 if(Business){fetchNews("Business")}
 if(Entertainment){fetchNews("Entertainment")}
 if(General){fetchNews("General")}

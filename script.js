@@ -260,10 +260,10 @@ function searchUser() {
           console.error(error);
         });
     } else {
-      alert("Enter user name");
+      alert("Enter username");
     }
   } else {
-    alert("Do Register your Self");
+    alert("Please Register");
   }
 }
 
@@ -427,7 +427,7 @@ function removeUserFromList(getuser) {
           alert("No users found");
         }
 
-        alert(getuser.first_name + " has been removed from your list");
+        alert(getuser.username + " has been removed from your list");
       }
     })
     .catch((err) => alert(err.message));
@@ -462,7 +462,7 @@ function notify(getuser) {
             .ref("users/")
             .child(getuser.user_id)
             .update({ addBy: addByFiltered });
-          alert("Notified to user");
+          alert("Notified");
         } else {
           alert("cant add");
         }
