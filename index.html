@@ -51,23 +51,22 @@
                    <div class = "nav-bar" id = "nav-bar">
                        <nav>
                            <ul>
-                               <li><a href = "index.html">home</a></li>
-                               <li><a href = "featured.html">Featured</a></li>
-                               <li><a href = "business.html">Business</a></li>
-                               <li><a href = "entertainment.html">Entertainment</a></li>
-                               <li><a href = "sports.html">Sports</a></li>
-                               <li><a href = "health.html">Health</a></li>
-                               <li><a href = "science.html">Science</a></li>
-                               <li><a href = "technology.html">Technology</a></li>
+                               <li><a href = "index.html">HOME</a></li>
+                               <li><a href = "feed.html">FEED</a></li>
+                               
                                <li><a href = "profile.html" id="index_username"></a></li>
 			       
-			       <li><input type = "text" placeholder="Search news..."></li>
+			       <li><input type = "text" id="searchInput" placeholder="Search news..."></li>
+
+                   <li><button onclick="search()">Search!</button></li>
                            </ul>
                        </nav>
                    </div>
                </div> 
             </header>
 
+
+            <div id="news"></div>
 
 <div><button onclick="signOut()">Sign Out</button></div>
             
@@ -83,6 +82,8 @@
 
     <!-- Our script must be loaded after firebase references -->
     <script src="script.js"></script>
+    <script src="loadNews.js"></script>
+    <script src="index.js"></script>
     <script src="profile.js"></script>
 
             <!--bootstrap-->
