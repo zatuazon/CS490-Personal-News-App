@@ -1,218 +1,178 @@
 <!DOCTYPE html>
-    <html class="no-js">
-        <head>
-            
-           
-            <title></title>
-            <meta name="description" content="">
-            <meta name="viewport" content="width-device-width, intial-scale-1">
-            <link rel="stylesheet" href="main.css">
-            <link rel="stylesheet" href="profile.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600&family=Montserrat:wght@200;300;400;700&display=swap" rel="stylesheet">
-
-            <!--fontawesome-->
-            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-        </head>
-        <body>
-            
-            <!--header-->
-            <header>
-               <div class = "navigation-container">
-                   <div class = "top-head">
-                       <div class = "web-name">
-                           <h1>BOOTLEG BUSINESS INSIDER</h1>
-                       </div>
-
-                       <div class = "ham-btn">
-                           <span>
-                               <i class = "fas fa-bars"></i>
-                           </span>
-                       </div>
-
-                       <div class = "times-btn">
-                           <span>
-                               <i class = "fas fa-times"></i>
-                           </span>
-                       </div>
-                   </div>
-                   
-
-                   <!--navigation bar, tentative menu names 
+<html class="no-js">
+	<head>
+		<title></title>
+		<meta content="" name="description">
+		<meta content="width-device-width, intial-scale-1" name="viewport">
+		<link href="main.css" rel="stylesheet">
+		<link href="profile.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com" rel="preconnect">
+		<link href="https://fonts.gstatic.com" rel="preconnect">
+		<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600&family=Montserrat:wght@200;300;400;700&display=swap" rel="stylesheet"><!--fontawesome-->
+		<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+	</head>
+	<body>
+		<!--header-->
+		<header>
+			<div class="navigation-container">
+				<div class="top-head">
+					<div class="web-name">
+						<h1>
+							BOOTLEG BUSINESS INSIDER
+						</h1>
+					</div>
+					<div class="ham-btn">
+						<span><i class="fas fa-bars"></i></span>
+					</div>
+					<div class="times-btn">
+						<span><i class="fas fa-times"></i></span>
+					</div>
+				</div><!--navigation bar, tentative menu names 
                     depending on what kind of news-->
-                   <div class = "nav-bar" id = "nav-bar">
-                       <nav>
-                           <ul>
-                               <li><a href = "index.html">Home</a></li>
-                               <li><a href = "feed.html">FEED</a></li>
-
-                               <li><a href = "profile.html" id="index_username"></a></li>
-                           </ul>           
-                       </nav>
-                   </div>
-               </div> 
-            </header>
-            
-        
-        <div class = "profile-content">
-         
-            
-            <div class="main-content">
-        
-              <!-- Header -->
-              <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
-                <!-- Mask -->
-                <span class="mask bg-gradient-default opacity-8"></span>
-                <!-- Header container -->
-                <div class="container-fluid d-flex align-items-center">
-                  <div class="row">
-                    <div class="col-lg-7 col-md-10">
-                      <h1 class="display-2 text-white"></h1>
-                      
-                      <a href="login.html" onclick="signOut()" class="btn btn-info">Log Out</a>
-                      <br>
-                      <br>
-                      <a href="forgot.html" class="btn btn-info">Reset Password</a>
-                      <br>
-                      <br>
-                      <a href="users.html" class="btn btn-info">Add Friends</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Page content -->
-              <div class="container-fluid mt--7">
-                <div class="row">
-                  <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-                    <div class="card card-profile shadow">
-                      <div class="row justify-content-center">
-                        <div class="col-lg-3 order-lg-2">
-                          <div class="card-profile-image">
-                            <a href="#">
-                              <img src="user.png" class="rounded-circle">
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                        <div class="d-flex justify-content-between">
-                          <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-                          <a href="#" class="btn btn-sm btn-default float-right">Message</a>
-                        </div>
-                      </div>
-                      <div class="card-body pt-0 pt-md-4">
-                        <div class="row">
-                          <div class="col">
-                            <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                              <div>
-                                <span class="heading">0</span>
-                                <span class="description">Friends</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="text-center">
-                          <h3 id="index_first_name">
-                            
-                          </h3>
-                          <h3 id="index_last_name"></h3>
-
-                          <h3 id="index_email"></h3>
-                          
-                          <div class="h5 mt-4">
-                            <i class="ni business_briefcase-24 mr-2"></i>Profession
-                          </div>
-                          <div>
-                            <i class="ni education_hat mr-2"></i>Affiliation
-                          </div>
-                          <div id="verify_email">
-                            <h3 id="verify_email_status"></h3> <!--msg is shown Below calls async function -->
-                            <button onclick="verify()" id="verify_email_btn">Verfiy</button>
-                          </div>
-
-
-                          <hr class="my-4">
-                          
-                          <a href="#">Show more</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-8 order-xl-1">
-                    <div class="card bg-secondary shadow">
-                      <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                          <div class="col-8">
-                            <h3 class="mb-0">My account</h3>
-                          </div>
-                          <div class="col-4 text-right">
-                            <a href="user-setting.html" class="btn btn-sm btn-primary">Settings</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <form>
-                          <!-- Description -->
-                          <h6 class="heading-small text-muted mb-4">About me</h6>
-                          <div class="pl-lg-4">
-                            <div class="form-group focused">
-                              <label>About Me</label>
-                              <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">Sometimes I go to sleep hoping I'm a little less stupid the next day.</textarea>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="preference">
-
-              <label for="c_Business">Business</label>
-              <input type="checkbox" value="Business" id="c_Business">
-              <label for="c_Entertainment">Entertainment</label>
-              <input type="checkbox" value="Entertainment" id="c_Entertainment">
-              <label for="c_General">General</label>
-              <input type="checkbox" value="General" id="c_General">
-              <label for="c_Health">Health</label>
-              <input type="checkbox" value="Health" id="c_Health">
-              <label for="c_Science">Science</label>
-              <input type="checkbox" value="Science" id="c_Science">
-              <label for="c_Sports">Sports</label>
-              <input type="checkbox" value="Sports" id="c_Sports">
-              <label for="c_Technology">Technology</label>
-              <input type="checkbox" value="Technology" id="c_Technology">
-
-              <button onclick="savePreferences()">Save preference</button>
-            </div>
-
-            <footer class="footer">
-              <div class="row align-items-center justify-content-xl-between">
-                <div class="col-xl-6 m-auto text-center">
-                  <div class="copyright">
-                    <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Bootstrap</a></p>
-                  </div>
-                </div>
-              </div>
-            </footer>
-                <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+				<div class="nav-bar" id="nav-bar">
+					<nav>
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li>
+								<a href="feed.html">FEED</a>
+							</li>
+							<li>
+								<a href="profile.html" id="index_username"></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<div class="profile-content">
+			<div class="main-content">
+				<!-- Header -->
+				<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+					<!-- Mask -->
+					<span class="mask bg-gradient-default opacity-8"></span> <!-- Header container -->
+					<div class="container-fluid d-flex align-items-center">
+						<div class="row">
+							<div class="col-lg-7 col-md-10">
+								<h1 class="display-2 text-white"></h1><a class="btn btn-info" href="login.html" onclick="signOut()">Log Out</a><br>
+								<br>
+								<a class="btn btn-info" href="forgot.html">Reset Password</a><br>
+								<br>
+								<a class="btn btn-info" href="users.html">Add Friends</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- Page content -->
+				<div class="container-fluid mt--7">
+					<div class="row">
+						<div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+							<div class="card card-profile shadow">
+								<div class="row justify-content-center">
+									<div class="col-lg-3 order-lg-2">
+										<div class="card-profile-image">
+											<a href="#"><img class="rounded-circle" src="user.png"></a>
+										</div>
+									</div>
+								</div>
+								<div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+									<div class="d-flex justify-content-between">
+										<a class="btn btn-sm btn-info mr-4" href="#">Connect</a> <a class="btn btn-sm btn-default float-right" href="#">Message</a>
+									</div>
+								</div>
+								<div class="card-body pt-0 pt-md-4">
+									<div class="row">
+										<div class="col">
+											<div class="card-profile-stats d-flex justify-content-center mt-md-5">
+												<div>
+													<span class="heading">0</span> <span class="description">Friends</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="text-center">
+										<h3 id="index_first_name"></h3>
+										<h3 id="index_last_name"></h3>
+										<h3 id="index_email"></h3>
+										<div class="h5 mt-4">
+											<i class="ni business_briefcase-24 mr-2"></i>Profession
+										</div>
+										<div>
+											<i class="ni education_hat mr-2"></i>Affiliation
+										</div>
+										<div id="verify_email">
+											<h3 id="verify_email_status"></h3><!--msg is shown Below calls async function -->
+											<button id="verify_email_btn" onclick="verify()">Verfiy</button>
+										</div>
+										<hr class="my-4">
+										<a href="#">Show more</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-8 order-xl-1">
+							<div class="card bg-secondary shadow">
+								<div class="card-header bg-white border-0">
+									<div class="row align-items-center">
+										<div class="col-8">
+											<h3 class="mb-0">
+												My account
+											</h3>
+										</div>
+										<div class="col-4 text-right">
+											<a class="btn btn-sm btn-primary" href="user-setting.html">Settings</a>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<form>
+										<!-- Description -->
+										<h6 class="heading-small text-muted mb-4">
+											About me
+										</h6>
+										<div class="pl-lg-4">
+											<div class="form-group focused">
+												<label>About Me</label> 
+												<textarea class="form-control form-control-alternative" placeholder="A few words about you ..." rows="4">Sometimes I go to sleep hoping I'm a little less stupid the next day.</textarea>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="preference">
+				<label for="c_Business">Business</label> <input id="c_Business" type="checkbox" value="Business"> <label for="c_Entertainment">Entertainment</label> <input id="c_Entertainment" type="checkbox" value="Entertainment"> <label for="c_General">General</label> <input id="c_General" type="checkbox" value="General"> <label for="c_Health">Health</label> <input id="c_Health" type="checkbox" value="Health"> <label for="c_Science">Science</label> <input id="c_Science" type="checkbox" value="Science"> <label for="c_Sports">Sports</label> <input id="c_Sports" type="checkbox" value="Sports"> <label for="c_Technology">Technology</label> <input id="c_Technology" type="checkbox" value="Technology"> <button onclick="savePreferences()">Save preference</button>
+			</div>
+			<footer class="footer">
+				<div class="row align-items-center justify-content-xl-between">
+					<div class="col-xl-6 m-auto text-center">
+						<div class="copyright">
+							<p>
+								Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Bootstrap</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer><!-- The core Firebase JS SDK is always required and must be listed first -->
+			<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js">
+			</script> <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-
-    <!-- Our script must be loaded after firebase references -->
-    <script src="script.js"></script>
-    <script src="profile.js"></script>
-              <!--bootstrap-->
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-            
-	    
-          </body>
-    </html>
+			 
+			<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js">
+			</script> 
+			<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js">
+			</script> <!-- Our script must be loaded after firebase references -->
+			 
+			<script src="script.js">
+			</script> 
+			<script src="profile.js">
+			</script> <!--bootstrap-->
+			 
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js">
+			</script>
+		</div>
+	</body>
+</html>
