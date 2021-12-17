@@ -1,301 +1,232 @@
-/* 
-    font-family: 
-    'Exo 2', 
-    sans-serif;
-
-    font-family:
-    'Montserrat', 
-     sans-serif;
-
-    **font name reference for later**
+/*font-family:'Exo 2',sans-serif;
+font-family:'Montserrat',sans-serif;
 */
-
 :root {
-  --heading: "Montserrat", sans-serif;
+	--heading: "Montserrat", sans-serif;
 }
-
 body {
-  font-family: "Exo 2", sans-serif;
-  background: #fff;
+	font-family: "Exo 2", sans-serif;
+	background: #fff;
 }
-
 /*global styling */
-
 img {
-  width: 100%;
+	width: 100%;
 }
-
 ul {
-  list-style: none;
+	list-style: none;
 }
-
 a {
-  text-decoration: none;
-  color: #000;
+	text-decoration: none;
+	color: #000;
 }
-
 hr {
-  width: 95vw;
-  margin: 0 auto;
+	width: 95vw;
+	margin: 0 auto;
 }
-
 /* header */
-
 .top-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  background: #252525;
-  color: #fff;
-  padding: 20px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	background: #252525;
+	color: #fff;
+	padding: 20px 30px;
 }
-
 .top-head .fas {
-  font-size: 2rem /* font will always equal to double parent font-size*/;
-  cursor: pointer;
+	font-size: 2rem /* font will always equal to double parent font-size*/
+	;
+	cursor: pointer;
 }
-
 /*user settings page*/
-
 body.user-settings {
-  /*background: linear-gradient(to right, #2ed573, #f9ca24);*/
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
-
 .container {
-  background: #fff;
-  width: 540px;
-  height: 450px;
-  margin: 0 auto;
-  position: relative;
-  margin-top: 10%;
-  box-shadow: 2px 5px 20px rgba(119, 119, 119, 5);
+	background: #fff;
+	width: 540px;
+	height: 450px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 10%;
+	box-shadow: 2px 5px 20px rgba(119, 119, 119, 5);
 }
-
 .leftbox {
-  float: left;
-  top: -5%;
-  left: 5%;
-  position: absolute;
-  width: 15%;
-  height: 110%;
-  background: #096ffa;
-  box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
-  border: 0.1em solid #fff;
+	float: left;
+	top: -5%;
+	left: 5%;
+	position: absolute;
+	width: 15%;
+	height: 110%;
+	background: #096ffa;
+	box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
+	border: 0.1em solid #fff;
 }
-
 nav.setting-tab a {
-  list-style: none;
-  padding: 35px;
-  color: #fff;
-  font-size: 1.1em;
-  display: block;
-  transition: all 0.3s ease-in-out;
+	list-style: none;
+	padding: 35px;
+	color: #fff;
+	font-size: 1.1em;
+	display: block;
+	transition: all 0.3s ease-in-out;
 }
-
 nav.setting-tab a:hover {
-  color: #fff;
-  cursor: pointer;
-  transform: scale(1.2);
+	color: #fff;
+	cursor: pointer;
+	transform: scale(1.2);
 }
-
 nav.setting-tab a:first-child {
-  margin-top: 7px;
+	margin-top: 7px;
 }
-
 nav.setting-tab a.active {
-  color: #fff;
+	color: #fff;
 }
-
 .rightbox {
-  width: 60%;
-  margin-left: 27%;
+	width: 60%;
+	margin-left: 27%;
 }
-
 .tabShow {
-  transition: all.5s ease-in;
-  width: 60%;
+	transition: all.5s ease-in;
+	width: 60%;
 }
-
 h1.profile-header {
-  color: #000;
-  font-size: 1.2rem;
-  margin-top: 40px;
-  margin-bottom: 30px;
+	color: #000;
+	font-size: 1.2rem;
+	margin-top: 40px;
+	margin-bottom: 30px;
 }
-
 h2.profile-header2 {
-  color: #000;
-  text-transform: uppercase;
-  font-size: 8px;
-  letter-spacing: 1px;
-  margin-left: 2px;
-  margin-top: 1px;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 8px;
+	letter-spacing: 1px;
+	margin-left: 2px;
+	margin-top: 1px;
 }
-
-.input,
-p {
-  border: 0;
-  border-bottom: 1px solid #096ffa;
-  width: 80%;
-  font-size: 0.7em;
-  padding: 7px 0;
-  color: #070707;
-  outline: none;
+.input,p {
+	border: 0;
+	border-bottom: 1px solid #096ffa;
+	width: 80%;
+	font-size: 0.7em;
+	padding: 7px 0;
+	color: #070707;
+	outline: none;
 }
-
 body.user-settings span {
-  font-size: 0.7em;
-  color: #8b6ce0;
+	font-size: 0.7em;
+	color: #8b6ce0;
 }
-
 .update-btn {
-  font-family: "roboto", sans-serif;
-  text-transform: uppercase;
-  font-size: 15px;
-  border: 0;
-  color: #fff;
-  background: #7ed386;
-  padding: 7px 15px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  margin-top: 15px;
+	font-family: "roboto", sans-serif;
+	text-transform: uppercase;
+	font-size: 15px;
+	border: 0;
+	color: #fff;
+	background: #7ed386;
+	padding: 7px 15px;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	margin-top: 15px;
 }
-
 .tabShow {
-  display: none;
+	display: none;
 }
-
-/****js styling******/
-
 .times-btn {
-  display: none;
+	display: none;
 }
-
 .nav-bar {
-  background: #333;
-  height: 0;
-  overflow: hidden;
+	background: #333;
+	height: 0;
+	overflow: hidden;
 }
 .show-nav {
-  height: auto;
+	height: auto;
 }
-
-/***********************/
-
 .nav-bar ul li {
-  text-align: center;
-  display: block;
-  padding: 15px 0;
-  transition: all 1s ease-in-out;
+	text-align: center;
+	display: block;
+	padding: 15px 0;
+	transition: all 1s ease-in-out;
 }
-
 .nav-bar ul li:hover {
-  background: #0e0e0e;
+	background: #0e0e0e;
 }
-
 .nav-bar ul li a {
-  color: #fff;
-  text-transform: uppercase;
+	color: #fff;
+	text-transform: uppercase;
 }
-
 .nav-bar ul li a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
-
 @media (min-width: 1260px) {
-  /*nav*/
-  /*responsive design when sizing browsing window*/
-  .ham-btn,
-  .times-btn {
-    display: none !important;
-  }
-
-  /*website name centers when window expands */
-  .navigation-container {
-    display: flex;
-    background: #252525;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  /*condenses centered website name when window expands 
-    (nav bar disappears), when window gets smaller website 
-    name gets expanded with drop down display*/
-  .top-head {
-    flex: 0 0 auto;
-  }
-
-  /*nav bar options appear when window expands
-    with website name to left now, nav bar options
-    disappears when minimized and functional 
-    nav bar drop down appears*/
-  .nav-bar {
-    flex: 1 0 auto;
-    height: 100%;
-    background: transparent;
-  }
-
-  /*nav options centered*/
-  .nav-bar nav ul {
-    display: flex;
-    justify-content: center;
-  }
-
-  /*nav options appear then 
-    hover as you expand window*/
-  .nav-bar nav ul li {
-    padding-right: 30px;
-  }
-
-  .nav-bar nav ul li input[type="text"] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-right: 16px;
-    font-size: 17px;
-  }
-
-  .nav-bar nav ul li:hover {
-    background: none;
-  }
+	.ham-btn,.times-btn {
+		display: none !important;
+	}
+	.navigation-container {
+		display: flex;
+		background: #252525;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.top-head {
+		flex: 0 0 auto;
+	}
+	.nav-bar {
+		flex: 1 0 auto;
+		height: 100%;
+		background: transparent;
+	}
+	/*nav options centered*/
+	.nav-bar nav ul {
+		display: flex;
+		justify-content: center;
+	}
+	.nav-bar nav ul li {
+		padding-right: 30px;
+	}
+	.nav-bar nav ul li input[type="text"] {
+		float: right;
+		padding: 6px;
+		border: none;
+		margin-right: 16px;
+		font-size: 17px;
+	}
+	.nav-bar nav ul li:hover {
+		background: none;
+	}
 }
 #message {
-  display: none;
-  background: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
+	display: none;
+	background: #f1f1f1;
+	color: #000;
+	position: relative;
+	padding: 20px;
+	margin-top: 10px;
 }
 /* Add a green text color and a checkmark when the requirements are right */
 .valid {
-  color: green;
+	color: green;
 }
 .invalid {
-  color: red;
+	color: red;
 }
 .invalid:before {
-  position: relative;
-  left: -35px;
+	position: relative;
+	left: -35px;
 }
 #message p {
-  padding: 10px 35px;
-  font-size: 18px;
+	padding: 10px 35px;
+	font-size: 18px;
 }
 .output {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px;
-  padding: 10px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 10px;
+	padding: 10px;
 }
-
 .output > div {
-  background-color: rgba(255, 255, 255, 0.8);
-
-  text-align: center;
-  position: relative;
-
-  font-size: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	position: relative;
+	font-size: 20px;
 }
